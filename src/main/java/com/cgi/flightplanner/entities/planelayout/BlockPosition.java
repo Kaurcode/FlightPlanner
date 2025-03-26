@@ -1,4 +1,4 @@
-package com.cgi.flightplanner.entities;
+package com.cgi.flightplanner.entities.planelayout;
 
 public enum BlockPosition {
     LEFT,
