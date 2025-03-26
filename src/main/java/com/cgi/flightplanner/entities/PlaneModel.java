@@ -1,4 +1,4 @@
 package com.cgi.flightplanner.entities;
 
-public class Location {
+public class PlaneModel {
 }

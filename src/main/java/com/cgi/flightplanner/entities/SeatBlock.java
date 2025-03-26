@@ -1,4 +1,4 @@
 package com.cgi.flightplanner.entities;
 
-public class Row {
+public class SeatBlock {
 }
