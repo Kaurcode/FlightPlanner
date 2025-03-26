@@ -14,6 +14,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     List<Flight> findByOriginAndDepartureTimeAfter(Airport origin, Instant earliestTime);
 
     List<Flight> findByOriginAndDepartureTimeAfterAndArrivalTimeBefore(
-            Airport origin, Instant earliestDepartureTime, Instant earliestArrivalTime
+            Airport origin, Instant earliestDepartureTime, Instant latestArrivalTime
     );
 }
