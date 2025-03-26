@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
     // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
-    List<Flight> findByOriginAndDepartureTimeAfter(Airport origin, Instant departureTime);
+    List<Flight> findByOriginAndDepartureTimeAfter(Airport origin, Instant earliestTime);
 
     List<Flight> findByOriginAndDepartureTimeAfterAndArrivalTimeBefore(
-            Airport origin, Instant departureTime, Instant arrivalTime
+            Airport origin, Instant earliestDepartureTime, Instant earliestArrivalTime
     );
 }
