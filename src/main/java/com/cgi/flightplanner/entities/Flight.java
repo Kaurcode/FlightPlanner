@@ -22,4 +22,21 @@ public class Flight {
     private Instant arrivalTime;
 
     // private Plane plane;
+
+
+    public Airport getOrigin() {
+        return origin;
+    }
+
+    public Airport getDestination() {
+        return destination;
+    }
+
+    public Instant getDepartureTime() {
+        return departureTime;
+    }
+
+    public Instant getArrivalTime() {
+        return arrivalTime;
+    }
 }
