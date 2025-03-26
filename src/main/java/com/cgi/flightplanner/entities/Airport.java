@@ -2,6 +2,8 @@ package com.cgi.flightplanner.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Airport {
     @Id
@@ -11,4 +13,10 @@ public class Airport {
     private String city;
     private String airportCode;
     private String country;
+
+    @OneToMany(mappedBy = "origin")
+    private List<Flight> departures;
+
+    @OneToMany(mappedBy = "destination")
+    private List<Flight> arrivals;
 }
