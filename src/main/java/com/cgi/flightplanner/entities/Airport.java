@@ -19,4 +19,6 @@ public class Airport {
 
     @OneToMany(mappedBy = "destination")
     private List<Flight> arrivals;
+
+    protected Airport() {}
 }

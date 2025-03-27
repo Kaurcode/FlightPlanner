@@ -1,5 +1,25 @@
 package com.cgi.flightplanner.entities.planelayout;
 
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
 public class SeatRow {
-    private boolean isMoreLegRoom;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String identifier;
+
+    private boolean hasMoreLegRoom;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "CABIN_SECTION_ID", nullable = false)
+    private CabinSection cabinSection;
+
+    @OneToMany(mappedBy = "seatRow")
+    private List<SeatBlock> seatBlocks;
+
+    protected SeatRow() {}
 }

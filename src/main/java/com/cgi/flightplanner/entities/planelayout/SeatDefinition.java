@@ -1,9 +1,9 @@
 package com.cgi.flightplanner.entities.planelayout;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.cgi.flightplanner.entities.BookableSeat;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class SeatDefinition {
@@ -11,5 +11,14 @@ public class SeatDefinition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private boolean isBooked;
+    private String identifier;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "SEAT_BLOCK_ID", nullable = false)
+    private SeatBlock seatBlock;
+
+    @OneToMany(mappedBy = "seat")
+    private List<BookableSeat> bookableSeats;
+
+    protected SeatDefinition() {}
 }

@@ -3,6 +3,7 @@ package com.cgi.flightplanner.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 public class Flight {
@@ -21,8 +22,14 @@ public class Flight {
     private Instant departureTime;
     private Instant arrivalTime;
 
-    // private Plane plane;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "PLANE_ID", nullable = false)
+    private Plane plane;
 
+    @OneToMany(mappedBy = "flight")
+    private List<BookableSeat> seats;
+
+    protected Flight() {}
 
     public Airport getOrigin() {
         return origin;
