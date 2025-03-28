@@ -22,6 +22,9 @@ public class Flight {
     private Instant departureTime;
     private Instant arrivalTime;
 
+    private String identifier;
+    private String company;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "PLANE_ID", nullable = false)
     private Plane plane;
