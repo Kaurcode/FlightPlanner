@@ -17,8 +17,9 @@ public class PlaneModel {
     @OneToMany(mappedBy = "planeModel")
     private List<Plane> planes;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "SEAT_PLAN_ID", nullable = false)
+    // TODO: Optionality is temporary, change later
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "SEAT_PLAN_ID", nullable = true)
     private SeatPlan seatPlan;
 
     protected PlaneModel() {}
