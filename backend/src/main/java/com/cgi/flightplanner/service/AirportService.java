@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AirportService {
-    private final AirportRepository airportRepository;
-
+public class AirportService extends CrudService<Airport, AirportRepository> {
     public AirportService(AirportRepository airportRepository) {
-        this.airportRepository = airportRepository;
+        super(airportRepository);
     }
 
     public Optional<Airport> findByCode(String airportCode) {
-        return airportRepository.findByAirportCode(airportCode);
+        return repository.findByAirportCode(airportCode);
     }
 }
