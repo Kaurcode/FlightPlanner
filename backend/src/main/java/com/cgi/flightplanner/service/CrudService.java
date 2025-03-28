@@ -11,6 +11,10 @@ public abstract class CrudService<T, R extends JpaRepository<T, Long>> {
         this.repository = repository;
     }
 
+    public T save(T entity) {
+        return repository.save(entity);
+    }
+
     public List<T> findAll() {
         return repository.findAll();
     }
