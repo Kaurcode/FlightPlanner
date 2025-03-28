@@ -19,4 +19,12 @@ public class FlightPath {
 
         this.totalTravelTime = Duration.between(firstDepartureTime, lastArrivalTime);
     }
+
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public Duration getTotalTravelTime() {
+        return totalTravelTime;
+    }
 }
