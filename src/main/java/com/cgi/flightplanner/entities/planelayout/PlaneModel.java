@@ -12,6 +12,7 @@ public class PlaneModel {
     private Long id;
 
     private String identifier;
+    private String company;
 
     @OneToMany(mappedBy = "planeModel")
     private List<Plane> planes;
