@@ -34,6 +34,10 @@ public class Flight {
 
     protected Flight() {}
 
+    public long getId() {
+        return id;
+    }
+
     public Airport getOrigin() {
         return origin;
     }
@@ -48,5 +52,17 @@ public class Flight {
 
     public Instant getArrivalTime() {
         return arrivalTime;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public Plane getPlane() {
+        return plane;
     }
 }

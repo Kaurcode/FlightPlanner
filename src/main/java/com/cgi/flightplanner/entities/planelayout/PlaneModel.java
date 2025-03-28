@@ -22,4 +22,12 @@ public class PlaneModel {
     private SeatPlan seatPlan;
 
     protected PlaneModel() {}
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public String getCompany() {
+        return company;
+    }
 }

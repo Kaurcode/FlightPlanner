@@ -21,4 +21,16 @@ public class Airport {
     private List<Flight> arrivals;
 
     protected Airport() {}
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getAirportCode() {
+        return airportCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 }

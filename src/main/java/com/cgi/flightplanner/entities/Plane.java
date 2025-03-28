@@ -21,4 +21,12 @@ public class Plane {
     private PlaneModel planeModel;
 
     protected Plane() {}
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public PlaneModel getPlaneModel() {
+        return planeModel;
+    }
 }
