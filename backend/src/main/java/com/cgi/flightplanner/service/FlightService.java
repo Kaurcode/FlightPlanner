@@ -9,21 +9,19 @@ import java.time.Instant;
 import java.util.List;
 
 @Service
-public class FlightService {
-    private final FlightRepository flightRepository;
-
+public class FlightService extends CrudService<Flight, FlightRepository>{
     public FlightService(FlightRepository flightRepository) {
-        this.flightRepository = flightRepository;
+        super(flightRepository);
     }
 
     public List<Flight> findDeparturesAfterTime(Airport origin, Instant earliestTime) {
-        return flightRepository.findByOriginAndDepartureTimeAfter(origin, earliestTime);
+        return repository.findByOriginAndDepartureTimeAfter(origin, earliestTime);
     }
 
     public List<Flight> findDeparturesAfterAndBeforeTime(
             Airport origin, Instant earliestDepartureTime, Instant latestArrivalTime
     ) {
-        return flightRepository.findByOriginAndDepartureTimeAfterAndArrivalTimeBefore(
+        return repository.findByOriginAndDepartureTimeAfterAndArrivalTimeBefore(
                 origin, earliestDepartureTime, latestArrivalTime
         );
     }
