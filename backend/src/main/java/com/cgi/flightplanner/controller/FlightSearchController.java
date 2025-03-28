@@ -1,5 +1,6 @@
 package com.cgi.flightplanner.controller;
 
+import com.cgi.flightplanner.dto.AirportDto;
 import com.cgi.flightplanner.dto.FlightPathDto;
 import com.cgi.flightplanner.entities.Airport;
 import com.cgi.flightplanner.service.AirportService;
@@ -24,6 +25,11 @@ public class FlightSearchController {
     public FlightSearchController(FlightPathService flightPathService, AirportService airportService) {
         this.flightPathService = flightPathService;
         this.airportService = airportService;
+    }
+
+    @GetMapping("/airports")
+    public List<AirportDto> getAirports() {
+        return airportService.findAll().stream().map(AirportDto::new).toList();
     }
 
     @GetMapping("/flightPaths")
