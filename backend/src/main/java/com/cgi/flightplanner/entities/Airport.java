@@ -22,6 +22,10 @@ public class Airport {
 
     protected Airport() {}
 
+    public long getId() {
+        return id;
+    }
+
     public String getCity() {
         return city;
     }
