@@ -22,6 +22,12 @@ public class Airport {
 
     protected Airport() {}
 
+    public Airport(String city, String airportCode, String country) {
+        this.city = city;
+        this.airportCode = airportCode;
+        this.country = country;
+    }
+
     public long getId() {
         return id;
     }

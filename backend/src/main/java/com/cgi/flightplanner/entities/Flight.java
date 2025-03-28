@@ -34,6 +34,24 @@ public class Flight {
 
     protected Flight() {}
 
+    public Flight(
+            Airport origin,
+            Airport destination,
+            Instant departureTime,
+            Instant arrivalTime,
+            String identifier,
+            String company,
+            Plane plane
+    ) {
+        this.origin = origin;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.identifier = identifier;
+        this.company = company;
+        this.plane = plane;
+    }
+
     public long getId() {
         return id;
     }

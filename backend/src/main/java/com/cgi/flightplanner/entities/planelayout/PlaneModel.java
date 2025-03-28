@@ -24,6 +24,11 @@ public class PlaneModel {
 
     protected PlaneModel() {}
 
+    public PlaneModel(String identifier, String company) {
+        this.identifier = identifier;
+        this.company = company;
+    }
+
     public String getIdentifier() {
         return identifier;
     }
