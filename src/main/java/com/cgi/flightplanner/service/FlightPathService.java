@@ -6,10 +6,7 @@ import com.cgi.flightplanner.entities.FlightPath;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class FlightPathService {
@@ -24,7 +21,36 @@ public class FlightPathService {
         List<Flight> getFlights(Airport origin, Instant earliestDepartureTime);
     }
 
-    public List<FlightPath> getAllFlightPaths(
+    public List<FlightPath> getAllFlightPathsSorted(
+            Airport origin,
+            Airport destination,
+            Instant earliestDepartureTime
+    ) {
+        return getAllFlightPaths(origin, destination, earliestDepartureTime)
+                .stream()
+                .sorted(Comparator
+                        .comparing(FlightPath::getTotalTravelTime)
+                        .thenComparing(path -> path.getFlights().size())
+                )
+                .toList();
+    }
+
+    public List<FlightPath> getAllFlightPathsSorted(
+            Airport origin,
+            Airport destination,
+            Instant earliestDepartureTime,
+            Instant latestArrivalTime
+    ) {
+        return getAllFlightPaths(origin, destination, earliestDepartureTime, latestArrivalTime)
+                .stream()
+                .sorted(Comparator
+                        .comparing(FlightPath::getTotalTravelTime)
+                        .thenComparing(path -> path.getFlights().size())
+                )
+                .toList();
+    }
+
+    private List<FlightPath> getAllFlightPaths(
             Airport origin,
             Airport destination,
             Instant earliestDepartureTime
@@ -48,7 +74,7 @@ public class FlightPathService {
         return flightPaths;
     }
 
-    public List<FlightPath> getAllFlightPaths(
+    private List<FlightPath> getAllFlightPaths(
             Airport origin,
             Airport destination,
             Instant earliestDepartureTime,
