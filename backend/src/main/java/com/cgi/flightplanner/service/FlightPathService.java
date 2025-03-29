@@ -2,7 +2,7 @@ package com.cgi.flightplanner.service;
 
 import com.cgi.flightplanner.entities.Airport;
 import com.cgi.flightplanner.entities.Flight;
-import com.cgi.flightplanner.entities.FlightPath;
+import com.cgi.flightplanner.entities.helpers.FlightPath;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

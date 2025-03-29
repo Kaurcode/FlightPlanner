@@ -1,6 +1,6 @@
 package com.cgi.flightplanner.dto;
 
-import com.cgi.flightplanner.entities.FlightPath;
+import com.cgi.flightplanner.entities.helpers.FlightPath;
 
 import java.time.Duration;
 import java.util.List;

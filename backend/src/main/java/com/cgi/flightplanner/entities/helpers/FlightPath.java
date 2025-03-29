@@ -1,4 +1,6 @@
-package com.cgi.flightplanner.entities;
+package com.cgi.flightplanner.entities.helpers;
+
+import com.cgi.flightplanner.entities.Flight;
 
 import java.time.Duration;
 import java.time.Instant;
