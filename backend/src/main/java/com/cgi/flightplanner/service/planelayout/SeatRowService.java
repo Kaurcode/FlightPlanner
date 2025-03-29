@@ -1,5 +1,6 @@
 package com.cgi.flightplanner.service.planelayout;
 
+import com.cgi.flightplanner.entities.planelayout.CabinSection;
 import com.cgi.flightplanner.entities.planelayout.Exit;
 import com.cgi.flightplanner.entities.planelayout.SeatRow;
 import com.cgi.flightplanner.repository.planelayout.SeatRowRepository;
@@ -13,8 +14,11 @@ import java.util.stream.IntStream;
 
 @Service
 public class SeatRowService extends CrudService<SeatRow, SeatRowRepository> {
-    public SeatRowService(SeatRowRepository repository) {
+    private final CabinSectionService cabinSectionService;
+
+    public SeatRowService(SeatRowRepository repository, CabinSectionService cabinSectionService) {
         super(repository);
+        this.cabinSectionService = cabinSectionService;
     }
 
     private static void updateRows(
@@ -25,12 +29,25 @@ public class SeatRowService extends CrudService<SeatRow, SeatRowRepository> {
     ) {
         IntStream.range(startIndex, endIndex)
                 .forEachOrdered(i -> {
-                    rows.get(i).setLengthFromExit(distanceFunction.applyAsInt(i));
+                    rows.get(i).setDistanceFromExit(distanceFunction.applyAsInt(i));
                 });
     }
 
     @Transactional
-    public void computeFields(List<SeatRow> rows) {
+    public void computeFields(List<CabinSection> sections) {
+        if (sections.stream().allMatch(CabinSection::getRowsComputed)) {
+            return;
+        }
+
+        List<SeatRow> rows = sections.stream()
+                .map(CabinSection::getSeatRows)
+                .flatMap(List::stream)
+                .toList();
+
+        IntStream.range(1, rows.size())
+                .filter(i -> rows.get(i - 1).getBlocks().isEmpty())
+                .forEachOrdered(i -> rows.get(i).setHasMoreLegRoom(true));
+
         List<Integer> exitRowIndexes = IntStream.range(0, rows.size())
                 .filter(i -> rows.get(i)
                         .getBlocks()
@@ -58,6 +75,9 @@ public class SeatRowService extends CrudService<SeatRow, SeatRowRepository> {
         int lastExitIndex = exitRowIndexes.getLast();
         updateRows(rows, lastExitIndex, rows.size(), i -> i - lastExitIndex);
 
-        repository.saveAll(rows);
+        this.saveAll(rows);
+
+        sections.forEach(section -> section.setRowsComputed(true));
+        cabinSectionService.saveAll(sections);
     }
 }
