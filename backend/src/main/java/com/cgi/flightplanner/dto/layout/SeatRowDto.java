@@ -18,7 +18,7 @@ public class SeatRowDto {
         this.identifier = seatRow.getIdentifier();
         this.hasMoreLegRoom = seatRow.isHasMoreLegRoom();
         this.seatBlocks = seatRow
-                .getSeatBlocks()
+                .getBlocks()
                 .stream()
                 .map(block -> new SeatBlockDto(block, seats))
                 .toList();

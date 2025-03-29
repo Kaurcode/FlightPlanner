@@ -19,7 +19,7 @@ public class SeatRow {
     private CabinSection cabinSection;
 
     @OneToMany(mappedBy = "seatRow")
-    private List<SeatBlock> seatBlocks;
+    private List<Block> blocks;
 
     protected SeatRow() {}
 
@@ -35,7 +35,7 @@ public class SeatRow {
         return hasMoreLegRoom;
     }
 
-    public List<SeatBlock> getSeatBlocks() {
-        return seatBlocks;
+    public List<Block> getBlocks() {
+        return blocks;
     }
 }
