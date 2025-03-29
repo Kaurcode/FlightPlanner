@@ -21,4 +21,12 @@ public class SeatDefinition {
     private List<BookableSeat> bookableSeats;
 
     protected SeatDefinition() {}
+
+    public long getId() {
+        return id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
 }

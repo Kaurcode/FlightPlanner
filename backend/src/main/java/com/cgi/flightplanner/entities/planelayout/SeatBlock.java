@@ -25,4 +25,24 @@ public class SeatBlock {
     private List<SeatDefinition> seats;
 
     protected SeatBlock() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public boolean isNextToWindow() {
+        return isNextToWindow;
+    }
+
+    public BlockPosition getBlockPosition() {
+        return blockPosition;
+    }
+
+    public List<SeatDefinition> getSeats() {
+        return seats;
+    }
 }

@@ -83,4 +83,8 @@ public class Flight {
     public Plane getPlane() {
         return plane;
     }
+
+    public List<BookableSeat> getSeats() {
+        return seats;
+    }
 }

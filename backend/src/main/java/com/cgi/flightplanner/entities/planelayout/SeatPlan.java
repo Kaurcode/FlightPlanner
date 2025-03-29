@@ -19,4 +19,8 @@ public class SeatPlan {
     private List<CabinSection> cabinSections;
 
     protected SeatPlan() {}
+
+    public List<CabinSection> getCabinSections() {
+        return cabinSections;
+    }
 }

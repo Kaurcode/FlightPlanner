@@ -20,4 +20,16 @@ public class BookableSeat {
     private SeatDefinition seat;
 
     protected BookableSeat() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public boolean isBooked() {
+        return isBooked;
+    }
+
+    public SeatDefinition getSeat() {
+        return seat;
+    }
 }

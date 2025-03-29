@@ -36,4 +36,8 @@ public class PlaneModel {
     public String getCompany() {
         return company;
     }
+
+    public SeatPlan getSeatPlan() {
+        return seatPlan;
+    }
 }

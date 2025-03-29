@@ -22,4 +22,20 @@ public class SeatRow {
     private List<SeatBlock> seatBlocks;
 
     protected SeatRow() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public boolean isHasMoreLegRoom() {
+        return hasMoreLegRoom;
+    }
+
+    public List<SeatBlock> getSeatBlocks() {
+        return seatBlocks;
+    }
 }

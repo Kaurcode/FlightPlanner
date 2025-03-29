@@ -20,4 +20,16 @@ public class CabinSection {
     private List<SeatRow> seatRows;
 
     protected CabinSection() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public List<SeatRow> getSeatRows() {
+        return seatRows;
+    }
 }
