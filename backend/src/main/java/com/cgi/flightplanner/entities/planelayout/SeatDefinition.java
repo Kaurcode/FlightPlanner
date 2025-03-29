@@ -23,9 +23,8 @@ public class SeatDefinition {
 
     // --- Computed fields ---
 
-    private boolean isComputed;
-    private boolean computedHasMoreLegRoom;
-    private boolean computedIsNextToWindow;
+    private Boolean computedHasMoreLegRoom = false;
+    private Boolean computedIsNextToWindow = false;
 
     // -----------------------
 
@@ -37,14 +36,6 @@ public class SeatDefinition {
 
     public String getIdentifier() {
         return identifier;
-    }
-
-    public boolean isComputed() {
-        return isComputed;
-    }
-
-    public void setComputed(boolean computed) {
-        isComputed = computed;
     }
 
     public boolean isComputedHasMoreLegRoom() {

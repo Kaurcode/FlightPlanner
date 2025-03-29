@@ -16,8 +16,8 @@ public class SeatBlock extends Block {
 
     // --- Computed fields ---
 
-    private boolean isComputed;
-    private boolean computedHasMoreLegRoom;
+    private Boolean isSeatsComputed = false;
+    private Boolean computedHasMoreLegRoom = false;
 
     // -----------------------
 
@@ -35,12 +35,12 @@ public class SeatBlock extends Block {
         return seats;
     }
 
-    public boolean isComputed() {
-        return isComputed;
+    public boolean isSeatsComputed() {
+        return isSeatsComputed;
     }
 
-    public void setComputed(boolean computed) {
-        isComputed = computed;
+    public void setSeatsComputed(boolean seatsComputed) {
+        isSeatsComputed = seatsComputed;
     }
 
     public boolean isComputedHasMoreLegRoom() {

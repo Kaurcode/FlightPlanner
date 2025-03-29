@@ -23,8 +23,8 @@ public class SeatRow {
 
     // --- Computed fields ---
 
-    private boolean isComputed;
-    private long lengthFromExit;
+    private Boolean isBlocksComputed = false;
+    private long distanceFromExit;
 
     // -----------------------
 
@@ -42,24 +42,28 @@ public class SeatRow {
         return hasMoreLegRoom;
     }
 
+    public void setHasMoreLegRoom(boolean hasMoreLegRoom) {
+        this.hasMoreLegRoom = hasMoreLegRoom;
+    }
+
     public List<Block> getBlocks() {
         return blocks;
     }
 
-    public boolean isComputed() {
-        return isComputed;
+    public boolean isBlocksComputed() {
+        return isBlocksComputed;
     }
 
-    public void setComputed(boolean computed) {
-        isComputed = computed;
+    public void setBlocksComputed(boolean blocksComputed) {
+        isBlocksComputed = blocksComputed;
     }
 
-    public long getLengthFromExit() {
-        return lengthFromExit;
+    public long getDistanceFromExit() {
+        return distanceFromExit;
     }
 
-    public void setLengthFromExit(long lengthFromExit) {
-        this.lengthFromExit = lengthFromExit;
+    public void setDistanceFromExit(long lengthFromExit) {
+        this.distanceFromExit = lengthFromExit;
     }
 
 }

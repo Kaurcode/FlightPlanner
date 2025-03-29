@@ -19,6 +19,12 @@ public class CabinSection {
     @OneToMany(mappedBy = "cabinSection")
     private List<SeatRow> seatRows;
 
+    // --- Computed fields ---
+
+    private Boolean isRowsComputed = false;
+
+    // -----------------------
+
     protected CabinSection() {}
 
     public Long getId() {
@@ -31,5 +37,13 @@ public class CabinSection {
 
     public List<SeatRow> getSeatRows() {
         return seatRows;
+    }
+
+    public Boolean getRowsComputed() {
+        return isRowsComputed;
+    }
+
+    public void setRowsComputed(Boolean rowsComputed) {
+        isRowsComputed = rowsComputed;
     }
 }
