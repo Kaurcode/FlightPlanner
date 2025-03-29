@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@DiscriminatorValue("SEAT_BLOCK")
 public class SeatBlock extends Block {
     private String identifier;
 
