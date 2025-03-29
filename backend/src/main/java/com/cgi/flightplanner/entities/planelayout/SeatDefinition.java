@@ -21,6 +21,14 @@ public class SeatDefinition {
     @OneToMany(mappedBy = "seat")
     private List<BookableSeat> bookableSeats;
 
+    // --- Computed fields ---
+
+    private boolean isComputed;
+    private boolean computedHasMoreLegRoom;
+    private boolean computedIsNextToWindow;
+
+    // -----------------------
+
     protected SeatDefinition() {}
 
     public long getId() {
@@ -29,6 +37,30 @@ public class SeatDefinition {
 
     public String getIdentifier() {
         return identifier;
+    }
+
+    public boolean isComputed() {
+        return isComputed;
+    }
+
+    public void setComputed(boolean computed) {
+        isComputed = computed;
+    }
+
+    public boolean isComputedHasMoreLegRoom() {
+        return computedHasMoreLegRoom;
+    }
+
+    public void setComputedHasMoreLegRoom(boolean computedHasMoreLegRoom) {
+        this.computedHasMoreLegRoom = computedHasMoreLegRoom;
+    }
+
+    public boolean isComputedIsNextToWindow() {
+        return computedIsNextToWindow;
+    }
+
+    public void setComputedIsNextToWindow(boolean computedIsNextToWindow) {
+        this.computedIsNextToWindow = computedIsNextToWindow;
     }
 
     // TODO: Better errors

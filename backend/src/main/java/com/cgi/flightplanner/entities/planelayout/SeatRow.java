@@ -21,6 +21,13 @@ public class SeatRow {
     @OneToMany(mappedBy = "seatRow")
     private List<Block> blocks;
 
+    // --- Computed fields ---
+
+    private boolean isComputed;
+    private long lengthFromExit;
+
+    // -----------------------
+
     protected SeatRow() {}
 
     public Long getId() {
@@ -38,4 +45,21 @@ public class SeatRow {
     public List<Block> getBlocks() {
         return blocks;
     }
+
+    public boolean isComputed() {
+        return isComputed;
+    }
+
+    public void setComputed(boolean computed) {
+        isComputed = computed;
+    }
+
+    public long getLengthFromExit() {
+        return lengthFromExit;
+    }
+
+    public void setLengthFromExit(long lengthFromExit) {
+        this.lengthFromExit = lengthFromExit;
+    }
+
 }

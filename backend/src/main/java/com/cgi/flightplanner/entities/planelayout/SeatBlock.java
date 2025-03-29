@@ -14,6 +14,13 @@ public class SeatBlock extends Block {
     @OneToMany(mappedBy = "seatBlock")
     private List<SeatDefinition> seats;
 
+    // --- Computed fields ---
+
+    private boolean isComputed;
+    private boolean computedHasMoreLegRoom;
+
+    // -----------------------
+
     protected SeatBlock() {}
 
     public String getIdentifier() {
@@ -26,5 +33,21 @@ public class SeatBlock extends Block {
 
     public List<SeatDefinition> getSeats() {
         return seats;
+    }
+
+    public boolean isComputed() {
+        return isComputed;
+    }
+
+    public void setComputed(boolean computed) {
+        isComputed = computed;
+    }
+
+    public boolean isComputedHasMoreLegRoom() {
+        return computedHasMoreLegRoom;
+    }
+
+    public void setComputedHasMoreLegRoom(boolean computedHasMoreLegRoom) {
+        this.computedHasMoreLegRoom = computedHasMoreLegRoom;
     }
 }
