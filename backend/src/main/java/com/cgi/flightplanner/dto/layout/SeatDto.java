@@ -8,11 +8,13 @@ public class SeatDto {
     private final Long bookableSeatId;
 
     private final String identifier;
+    private SeatAvailability availability;
 
     public SeatDto(SeatDefinition seat, BookableSeat booking) {
         this.seatDefinitionId = seat.getId();
         this.bookableSeatId = booking.getId();
 
         this.identifier = seat.getIdentifier();
+        this.availability = booking.isBooked() ? SeatAvailability.BOOKED : SeatAvailability.AVAILABLE;
     }
 }
