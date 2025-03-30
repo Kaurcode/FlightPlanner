@@ -21,6 +21,12 @@ public class BookableSeat {
 
     protected BookableSeat() {}
 
+    public BookableSeat(boolean isBooked, Flight flight, SeatDefinition seat) {
+        this.isBooked = isBooked;
+        this.flight = flight;
+        this.seat = seat;
+    }
+
     public Long getId() {
         return id;
     }

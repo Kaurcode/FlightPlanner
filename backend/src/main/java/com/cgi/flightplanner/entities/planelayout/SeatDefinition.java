@@ -21,6 +21,11 @@ public class SeatDefinition {
     @OneToMany(mappedBy = "seat")
     private List<BookableSeat> bookableSeats;
 
+    public SeatDefinition(String identifier, SeatBlock seatBlock) {
+        this.identifier = identifier;
+        this.seatBlock = seatBlock;
+    }
+
     // --- Computed fields ---
 
     private Boolean computedHasMoreLegRoom = false;

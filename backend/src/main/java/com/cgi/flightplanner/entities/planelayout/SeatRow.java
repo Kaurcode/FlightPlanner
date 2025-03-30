@@ -30,6 +30,12 @@ public class SeatRow {
 
     protected SeatRow() {}
 
+    public SeatRow(String identifier, boolean hasMoreLegRoom, CabinSection cabinSection) {
+        this.identifier = identifier;
+        this.hasMoreLegRoom = hasMoreLegRoom;
+        this.cabinSection = cabinSection;
+    }
+
     public Long getId() {
         return id;
     }
@@ -50,6 +56,10 @@ public class SeatRow {
         return blocks;
     }
 
+    public void setBlocks(List<Block> blocks) {
+        this.blocks = blocks;
+    }
+
     public boolean isBlocksComputed() {
         return isBlocksComputed;
     }
@@ -65,5 +75,4 @@ public class SeatRow {
     public void setDistanceFromExit(long lengthFromExit) {
         this.distanceFromExit = lengthFromExit;
     }
-
 }

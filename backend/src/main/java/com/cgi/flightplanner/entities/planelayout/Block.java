@@ -19,6 +19,11 @@ public abstract class Block {
 
     protected Block() {}
 
+    public Block(BlockPosition blockPosition, SeatRow seatRow) {
+        this.blockPosition = blockPosition;
+        this.seatRow = seatRow;
+    }
+
     public Long getId() {
         return id;
     }

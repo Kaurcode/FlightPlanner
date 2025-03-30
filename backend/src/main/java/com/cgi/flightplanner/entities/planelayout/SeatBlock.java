@@ -23,6 +23,11 @@ public class SeatBlock extends Block {
 
     protected SeatBlock() {}
 
+    public SeatBlock(BlockPosition blockPosition, SeatRow seatRow, boolean isNextToWindow) {
+        super(blockPosition, seatRow);
+        this.isNextToWindow = isNextToWindow;
+    }
+
     public String getIdentifier() {
         return identifier;
     }
@@ -33,6 +38,10 @@ public class SeatBlock extends Block {
 
     public List<SeatDefinition> getSeats() {
         return seats;
+    }
+
+    public void setSeats(List<SeatDefinition> seats) {
+        this.seats = seats;
     }
 
     public boolean isSeatsComputed() {

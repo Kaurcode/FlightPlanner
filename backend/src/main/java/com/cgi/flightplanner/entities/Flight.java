@@ -87,4 +87,8 @@ public class Flight {
     public List<BookableSeat> getSeats() {
         return seats;
     }
+
+    public void setSeats(List<BookableSeat> seats) {
+        this.seats = seats;
+    }
 }
