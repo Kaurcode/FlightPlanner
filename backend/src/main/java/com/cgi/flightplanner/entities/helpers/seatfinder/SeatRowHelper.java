@@ -10,10 +10,12 @@ import java.util.Map;
 
 public class SeatRowHelper {
     private final long distanceFromExit;
+    private final boolean hasMoreLegRoom;
     private List<SeatBlockHelper> blocks;
 
     public SeatRowHelper(SeatRow seatRow, Map<SeatDefinition, BookableSeat> seatMappings) {
         this.distanceFromExit = seatRow.getDistanceFromExit();
+        this.hasMoreLegRoom = seatRow.isHasMoreLegRoom();
         this.blocks = seatRow
                 .getBlocks()
                 .stream()
@@ -25,6 +27,10 @@ public class SeatRowHelper {
 
     public long getDistanceFromExit() {
         return distanceFromExit;
+    }
+
+    public boolean isHasMoreLegRoom() {
+        return hasMoreLegRoom;
     }
 
     public List<SeatBlockHelper> getBlocks() {
