@@ -1,6 +1,5 @@
 package com.cgi.flightplanner.entities.helpers.seatfinder;
 
-import com.cgi.flightplanner.dto.layout.CabinSectionDto;
 import com.cgi.flightplanner.entities.BookableSeat;
 import com.cgi.flightplanner.entities.Flight;
 import com.cgi.flightplanner.entities.Plane;

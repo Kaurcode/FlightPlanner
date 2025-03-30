@@ -21,6 +21,7 @@ public class SeatRowService extends CrudService<SeatRow, SeatRowRepository> {
         this.cabinSectionService = cabinSectionService;
     }
 
+
     private static void updateRows(
             List<SeatRow> rows,
             int startIndex,

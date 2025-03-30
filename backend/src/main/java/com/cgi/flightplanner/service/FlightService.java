@@ -45,7 +45,7 @@ public class FlightService extends CrudService<Flight, FlightRepository>{
     @Override
     public Flight save(Flight flight) {
         if (flight.getSeats() == null || flight.getSeats().isEmpty()) {
-            flight.setSeats(bookableSeatService.generateBookableSeatsForFlight(flight));
+            // flight.setSeats(bookableSeatService.generateBookableSeatsForFlight(flight));
         }
 
         return super.save(flight);

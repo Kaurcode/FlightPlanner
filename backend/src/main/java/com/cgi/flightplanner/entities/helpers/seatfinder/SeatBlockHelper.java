@@ -13,6 +13,7 @@ public class SeatBlockHelper {
     private final boolean isNextToWindow;
     private final boolean hasMoreLegRoom;
     private List<SeatHelper> seats;
+    private Integer nrOfConsecutiveSeats;
 
     public SeatBlockHelper(SeatBlock seatBlock, Map<SeatDefinition, BookableSeat> seatMappings) {
         this.blockPosition = seatBlock.getBlockPosition();
@@ -43,5 +44,13 @@ public class SeatBlockHelper {
 
     public void setSeats(List<SeatHelper> seats) {
         this.seats = seats;
+    }
+
+    public Integer getNrOfConsecutiveSeats() {
+        return nrOfConsecutiveSeats;
+    }
+
+    public void setNrOfConsecutiveSeats(Integer nrOfConsecutiveSeats) {
+        this.nrOfConsecutiveSeats = nrOfConsecutiveSeats;
     }
 }
