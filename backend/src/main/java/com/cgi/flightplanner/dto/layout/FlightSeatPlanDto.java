@@ -10,6 +10,7 @@ import com.cgi.flightplanner.entities.planelayout.SeatPlan;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FlightSeatPlanDto {
@@ -17,7 +18,7 @@ public class FlightSeatPlanDto {
 
     private final List<CabinSectionDto> cabinSections;
 
-    public FlightSeatPlanDto(Flight flight) {
+    public FlightSeatPlanDto(Flight flight, Set<SeatDefinition> selectedSeats) {
         this.flightId = flight.getId();
         Plane plane = flight.getPlane();
         PlaneModel planeModel = plane.getPlaneModel();
@@ -35,7 +36,7 @@ public class FlightSeatPlanDto {
         this.cabinSections = seatPlan
                 .getCabinSections()
                 .stream()
-                .map(section -> new CabinSectionDto(section, seats))
+                .map(section -> new CabinSectionDto(section, seats, selectedSeats))
                 .toList();
     }
 

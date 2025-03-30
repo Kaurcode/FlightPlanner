@@ -8,6 +8,7 @@ import com.cgi.flightplanner.entities.planelayout.SeatDefinition;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class SeatBlockDto {
     private final Long blockId;
@@ -17,7 +18,7 @@ public class SeatBlockDto {
     private final List<SeatDto> seats;
     private final boolean isExit;
 
-    public SeatBlockDto(Block block, Map<SeatDefinition, BookableSeat> seatMappings) {
+    public SeatBlockDto(Block block, Map<SeatDefinition, BookableSeat> seatMappings, Set<SeatDefinition> selectedSeats) {
         this.blockId = block.getId();
         this.blockPosition = block.getBlockPosition();
 
@@ -38,7 +39,31 @@ public class SeatBlockDto {
         this.seats = seatBlock
                 .getSeats()
                 .stream()
-                .map(seat -> new SeatDto(seat, seatMappings.get(seat)))
+                .map(seat -> new SeatDto(seat, seatMappings.get(seat), selectedSeats))
                 .toList();
+    }
+
+    public Long getBlockId() {
+        return blockId;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public boolean isNextToWindow() {
+        return isNextToWindow;
+    }
+
+    public BlockPosition getBlockPosition() {
+        return blockPosition;
+    }
+
+    public List<SeatDto> getSeats() {
+        return seats;
+    }
+
+    public boolean isExit() {
+        return isExit;
     }
 }
