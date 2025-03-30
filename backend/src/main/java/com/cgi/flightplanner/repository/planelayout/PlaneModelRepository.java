@@ -1,4 +1,4 @@
-package com.cgi.flightplanner.repository;
+package com.cgi.flightplanner.repository.planelayout;
 
 import com.cgi.flightplanner.entities.planelayout.PlaneModel;
 import org.springframework.data.jpa.repository.JpaRepository;

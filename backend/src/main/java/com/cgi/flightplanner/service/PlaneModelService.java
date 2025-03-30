@@ -1,7 +1,7 @@
 package com.cgi.flightplanner.service;
 
 import com.cgi.flightplanner.entities.planelayout.PlaneModel;
-import com.cgi.flightplanner.repository.PlaneModelRepository;
+import com.cgi.flightplanner.repository.planelayout.PlaneModelRepository;
 import org.springframework.stereotype.Service;
 
 @Service
