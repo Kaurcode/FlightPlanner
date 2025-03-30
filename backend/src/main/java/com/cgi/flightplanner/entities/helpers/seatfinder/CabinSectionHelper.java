@@ -21,4 +21,12 @@ public class CabinSectionHelper {
                 .map(row -> new SeatRowHelper(row, seatMappings))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public List<SeatRowHelper> getRows() {
+        return rows;
+    }
 }
