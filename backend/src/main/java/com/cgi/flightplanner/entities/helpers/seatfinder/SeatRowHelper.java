@@ -5,14 +5,12 @@ import com.cgi.flightplanner.entities.planelayout.SeatBlock;
 import com.cgi.flightplanner.entities.planelayout.SeatDefinition;
 import com.cgi.flightplanner.entities.planelayout.SeatRow;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SeatRowHelper {
     private final long distanceFromExit;
-    private final List<SeatBlockHelper> blocks;
+    private List<SeatBlockHelper> blocks;
 
     public SeatRowHelper(SeatRow seatRow, Map<SeatDefinition, BookableSeat> seatMappings) {
         this.distanceFromExit = seatRow.getDistanceFromExit();
@@ -22,7 +20,7 @@ public class SeatRowHelper {
                 .filter(block -> block instanceof SeatBlock)
                 .map(block -> (SeatBlock) block)
                 .map(block -> new SeatBlockHelper(block, seatMappings))
-                .collect(Collectors.toCollection(ArrayList::new));
+                .toList();
     }
 
     public long getDistanceFromExit() {
@@ -31,5 +29,9 @@ public class SeatRowHelper {
 
     public List<SeatBlockHelper> getBlocks() {
         return blocks;
+    }
+
+    public void setBlocks(List<SeatBlockHelper> blocks) {
+        this.blocks = blocks;
     }
 }

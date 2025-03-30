@@ -5,16 +5,14 @@ import com.cgi.flightplanner.entities.planelayout.BlockPosition;
 import com.cgi.flightplanner.entities.planelayout.SeatBlock;
 import com.cgi.flightplanner.entities.planelayout.SeatDefinition;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SeatBlockHelper {
     private final BlockPosition blockPosition;
     private final boolean isNextToWindow;
     private final boolean hasMoreLegRoom;
-    private final List<SeatHelper> seats;
+    private List<SeatHelper> seats;
 
     public SeatBlockHelper(SeatBlock seatBlock, Map<SeatDefinition, BookableSeat> seatMappings) {
         this.blockPosition = seatBlock.getBlockPosition();
@@ -24,7 +22,7 @@ public class SeatBlockHelper {
                 .getSeats()
                 .stream()
                 .map(seat -> new SeatHelper(seat, seatMappings.get(seat)))
-                .collect(Collectors.toCollection(ArrayList::new));
+                .toList();
     }
 
     public BlockPosition getBlockPosition() {
@@ -41,5 +39,9 @@ public class SeatBlockHelper {
 
     public List<SeatHelper> getSeats() {
         return seats;
+    }
+
+    public void setSeats(List<SeatHelper> seats) {
+        this.seats = seats;
     }
 }

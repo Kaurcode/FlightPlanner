@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FlightSeatPlanHelper {
-    private final List<CabinSectionDto> cabinSections;
+    private List<CabinSectionHelper> cabinSections;
 
     public FlightSeatPlanHelper(Flight flight) {
         Plane plane = flight.getPlane();
@@ -33,11 +33,15 @@ public class FlightSeatPlanHelper {
         this.cabinSections = seatPlan
                 .getCabinSections()
                 .stream()
-                .map(section -> new CabinSectionDto(section, seats))
+                .map(section -> new CabinSectionHelper(section, seats))
                 .toList();
     }
 
-    public List<CabinSectionDto> getCabinSections() {
+    public List<CabinSectionHelper> getCabinSections() {
         return cabinSections;
+    }
+
+    public void setCabinSections(List<CabinSectionHelper> cabinSections) {
+        this.cabinSections = cabinSections;
     }
 }
